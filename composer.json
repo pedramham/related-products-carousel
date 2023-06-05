@@ -1,0 +1,32 @@
+{
+    "name": "sas/related-products-carousel",
+    "description": "Display related products carousel in the product details page",
+    "version": "1",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Morteza Shabani",
+            "email": "pedramham1@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sas\\RelatedProductsCarousel\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Sas\\RelatedProductsCarousel\\SasRelatedProductsCarousel",
+        "plugin-icon": "src/Resources/config/logo.jpg",
+        "copyright": "(c) by Morteza Shabani",
+        "label": {
+            "de-DE": "Related products carousel",
+            "en-GB": "Related products carousel"
+        },
+        "description": {
+            "de-DE": "Display related products carousel in the product details page.",
+            "en-GB": "Display related products carousel in the product details page."
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "sas-related-products-carousel": {
+        "product-detail": {
+            "title": "Ähnliches Produkt",
+            "carousel-control": {
+                "next": "Next",
+                "prev": "Previous"
+            }
+        }
+    }
+}

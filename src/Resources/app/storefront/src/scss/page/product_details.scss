@@ -1,0 +1,133 @@
+.carouselSimilarProduct {
+    margin: 50px 0;
+
+    .cms-element-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        gap: 40px;
+
+        .title {
+            font-weight: $font-bold-700;
+            color: $sw-color-brand-primary;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+    }
+
+    .line {
+        border: 1px solid $sw-color-brand-primary;
+        flex-shrink: 2;
+        flex-basis: 100%;
+    }
+
+    .similar-control {
+        flex-basis: 80px;
+        position: relative;
+    }
+
+    .controllers {
+        position: absolute;
+        top: -22px;
+        width: 70px;
+        height: 43px;
+        right: 0;
+    }
+
+    .carousel-control-next {
+        width: 40%;
+    }
+
+    .carousel-control-prev {
+        width: 40%;
+    }
+
+    .carousel-control-prev-icon {
+        width: $icon-width;
+        height: 30px;
+        background-image: url($prev-icon);
+    }
+
+    .carousel-control-next-icon {
+        width: $icon-width;
+        height: $icon-height;
+        background-image: url($next-icon);
+    }
+
+    .col-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 10px;
+
+        .photo {
+            width: 100%;
+
+            .product-image-link {
+                border: 1px solid $sw-border-color;
+                border-radius: $border-radius-5;
+            }
+        }
+
+        .title {
+            .product-name {
+                text-align: center;
+                height: 70px;
+                line-height: 32px;
+            }
+        }
+
+        .price {
+            background: $color-gray-100;
+            border-radius: $border-radius-5;
+            box-shadow: rgba(17, 17, 26, .1) 0 1px 0;
+            font-weight: $font-bold-700;
+            line-height: 32px;
+            color: $sw-color-brand-primary;
+            width: 100px;
+            text-align: center;
+
+        }
+
+        .photo {
+            .product-image {
+                height: 170px;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .carouselSimilarProduct {
+        .cms-element-title {
+            justify-content: space-between;
+
+            .line {
+                display: none;
+            }
+        }
+
+        .controllers {
+            right: 0;
+        }
+
+        .carousel-item {
+            .col-body {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .carouselSimilarProduct {
+        .carousel-item {
+            .col-body {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<div id="carouselSimilarProduct" class="carousel slide carousel-dark carouselSimilarProduct" data-ride="carousel"
+     data-interval="10000">
+    <div class="cms-element-title">
+        <div class="title">{{ 'sas-related-products-carousel.product-detail.title' |trans|striptags }}</div>
+        <div class="line"></div>
+        <div class="similar-control">
+            {% if productElements|length > 4 %}
+                <div class="controllers">
+                    <a class="carousel-control-prev" href="#carouselSimilarProduct" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">{{ 'sas-related-products-carousel.product-detail.carousel-control.next' |trans|striptags }}</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselSimilarProduct" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">{{ 'sas-related-products-carousel.product-detail.carousel-control.prev' |trans|striptags }}</span>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                {% for product in  productElements|slice(0, 4) %}
+                    {% set cover = product.cover.media %}
+                    {% set price = product.price.elements|first %}
+                    {% block block_related_products_carousel_1 %}
+                        {% sw_include "@Storefront/storefront/component/product/card/box-carousel-relates_products-details.html.twig" ignore missing %}
+                    {% endblock %}
+                {% endfor %}
+            </div>
+        </div>
+        {% if productElements|length > 4 %}
+            <div class="carousel-item">
+                <div class="row">
+                    {% for product in  productElements|slice(4, 4) %}
+                        {% set cover = product.cover.media %}
+                        {% set price = product.price.elements|first %}
+                        {% block block_related_products_carousel_2 %}
+                            {% sw_include "@Storefront/storefront/component/product/card/box-carousel-relates_products-details.html.twig" ignore missing %}
+                        {% endblock %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

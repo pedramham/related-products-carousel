@@ -1,0 +1,60 @@
+<div class="col-lg-3 col-sm-6 col-body">
+    <div class="col-item">
+        <div class="photo">
+            {% block component_product_box_image %}
+                <div class="product-image-wrapper">
+                    {% set displayMode = 'standard' %}
+                    {% set name = product.translated.name %}
+                    {% block component_product_box_image_link %}
+                        <a href="{{ seoUrl('frontend.detail.page', { 'productId': product.id }) }}"
+                           title="{{ name }}"
+                           class="product-image-link is-{{ displayMode }}">
+                            {% block component_product_box_image_link_inner %}
+                                {% if cover.url %}
+                                    {% set attributes = {
+                                        'class': 'product-image is-'~displayMode,
+                                        'alt': (cover.translated.alt ?: name),
+                                        'title': (cover.translated.title ?: name)
+                                    } %}
+
+                                    {% block component_product_box_image_thumbnail %}
+                                        {% sw_thumbnails 'product-image-thumbnails' with {
+                                            media: cover
+                                        } %}
+                                    {% endblock %}
+                                {% else %}
+                                    {% block component_product_box_image_placeholder %}
+                                        <div class="product-image-placeholder">
+                                            {% sw_icon 'placeholder' style {
+                                                'size': 'sm'
+                                            } %}
+                                        </div>
+                                    {% endblock %}
+                                {% endif %}
+                            {% endblock %}
+                        </a>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+        <div class="title">
+            <h5> {% block component_product_box_name %}
+                    <a href="{{ seoUrl('frontend.detail.page', {'productId': product.id}) }}"
+                       class="product-name"
+                       title="{{ product.translated.name }}">
+                        {{ product.translated.name|slice(0, 50) }}
+                    </a>
+                {% endblock %}
+            </h5>
+        </div>
+        <div class="price">
+            <strong>
+                <a href="{{ seoUrl('frontend.detail.page', {'productId': product.id}) }}"
+                   title="{{ product.translated.name }}">
+                    {{ price.net|currency }}
+                </a>
+            </strong>
+        </div>
+
+    </div>
+</div>
